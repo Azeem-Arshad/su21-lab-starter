@@ -4,17 +4,25 @@
 #include "ex1.h"
 
 int main(int argc, char **argv) {
+
     printf("Running tests...\n\n");
     /************ Part 1 Test Cases ************/
-    char *str = "hello world!";
-
-    int num_l = num_occurrences(str, 'l');
+    
+    char *str = "hello world!";    
+    int num_l = num_occurrences(str, 'l'); 
     assert(num_l == 3);
-
+    
     int num_z = num_occurrences(str, 'z');
     assert(num_z == 0);
 
     /* TODO: Think of a scenario that is not tested by the current test cases. Create one additional test case to test this scenario. */
+    
+    char *str2 = "everything is goint fine!";
+    int num_e = num_occurrences(str2, 'e');
+    assert(num_e == 3);
+    
+    int num_i = num_occurrences(str2, 'i');
+    assert(num_i == 4);
 
     printf("Congrats! If you have made it to this line, your Part 1 Test cases are all passing!\n");
 
@@ -36,8 +44,18 @@ int main(int argc, char **argv) {
     assert(dna_seq_2.T_count == 0);
 
     /* TODO: Think of a scenario that is not tested by the current test cases. Create one additional test case to test this scenario. */
+    
+    DNA_sequence dna_seq_3;
+    strcpy(dna_seq_1.sequence, "AACTAGACAATCATGT"); //It can be upto 20
+    compute_nucleotide_occurrences(&dna_seq_1);
+    assert(dna_seq_1.A_count == 7);
+    assert(dna_seq_1.C_count == 3);
+    assert(dna_seq_1.G_count == 2);
+    assert(dna_seq_1.T_count == 4);
 
     printf("Congrats! If you have made it to this line, your Part 2 Test cases are all passing!\n");
 
     return 0;
+
+
 }
